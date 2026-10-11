@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sayam Nasir | AI Integration Engineer</title>
+<meta name="description" content="Sayam Nasir is an AI and integration engineer with 6+ years building production API connectors, MuleSoft integrations and MCP-based AI tooling for SaaS and enterprise platforms.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+/* saved theme wins, otherwise the system; set before paint so there is no flash */
+(function(){var t=null;try{t=localStorage.getItem("theme")}catch(e){}
+if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);
+document.documentElement.classList.add("js")})();
+</script>
+<style>
+/* Design read: personal portfolio of an AI integration engineer, for hiring managers and engineering leads. Same visual system as portfolio-v3.
+   Experience mode: the artifact leads. Cinematic dark ink, one signal-orange accent, a live graph as the hero.
+   Dials: VARIANCE 8 / MOTION 7 / DENSITY 3. Type: Bricolage Grotesque for the name, Geist for headings and text, Geist Mono for labels. */
+:root{
+  --bg:#EEF0F3; --s1:#FFFFFF; --s2:#E4E8EC; --ink:#0B0E13; --muted:#566070; --line:#D3D9E0;
+  --accent:#C2410C; --on-accent:#FFFFFF; --glow:rgb(194 65 12/.14);
+  --solid:#10141B; --on-solid:#FFFFFF; --pbtn-bg:#FF6B2C; --pbtn-fg:#10141B; --bignum:#10141B; --halo-o:.2;
+  --display:"Geist",system-ui,sans-serif; --name:"Bricolage Grotesque","Geist",system-ui,sans-serif; --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1); --r:22px; color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --bg:#07080B; --s1:#0E1116; --s2:#161A21; --ink:#F2F3F5; --muted:#8E96A3; --line:#1E232C;
+  --accent:#FF6B2C; --on-accent:#07080B; --glow:rgb(255 107 44/.2); color-scheme:dark;
+  --solid:#FF6B2C; --on-solid:#07080B; --pbtn-bg:#07080B; --pbtn-fg:#FF6B2C; --bignum:#FF6B2C; --halo-o:.55;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme]){
+  --bg:#07080B; --s1:#0E1116; --s2:#161A21; --ink:#F2F3F5; --muted:#8E96A3; --line:#1E232C;
+  --accent:#FF6B2C; --on-accent:#07080B; --glow:rgb(255 107 44/.2); color-scheme:dark;
+  --solid:#FF6B2C; --on-solid:#07080B; --pbtn-bg:#07080B; --pbtn-fg:#FF6B2C; --bignum:#FF6B2C; --halo-o:.55;
+}}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:28px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;text-transform:uppercase}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(18px);border-color:var(--line)}
+.nav .wrap{height:68px;display:flex;align-items:center;gap:26px}
+.brand{font:700 20px/1 var(--name);letter-spacing:-.03em;text-decoration:none;margin-right:auto;white-space:nowrap;transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s}
+.nav:not(.brand-on) .brand{opacity:0;transform:translateY(-8px);visibility:hidden;pointer-events:none}
+.nav nav{display:flex;gap:26px}
+.nav nav a{font-size:15px;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 28px;border-radius:999px;font:600 16px/1 var(--sans);text-decoration:none;white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s,border-color .2s,background .2s}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--solid);color:var(--on-solid)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 34px -12px var(--accent)}
+.btn-ghost{border-color:var(--line);background:color-mix(in srgb,var(--s1) 70%,transparent);backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:var(--ink)}
+.nav .btn{height:42px;padding:0 20px;font-size:15px}
+.sw{display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 4px;background:none;border:0;cursor:pointer;white-space:nowrap}
+.swl{font-size:14.5px;color:var(--muted);transition:color .2s}
+.sw:hover .swl{color:var(--ink)}
+.swt{display:block;flex:none;position:relative;width:54px;height:30px;border-radius:999px;border:1px solid var(--line);background:var(--s2);transition:background .3s var(--ease),border-color .3s}
+.swk{display:block;position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:var(--ink);transition:transform .4s var(--ease),background .3s}
+.sw[aria-checked=true] .swt{background:var(--accent);border-color:var(--accent)}
+.sw[aria-checked=true] .swk{transform:translateX(24px);background:var(--on-accent)}
+.sw:focus-visible{outline-offset:2px}
+
+/* type */
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.04em;line-height:1.02}
+h2{font-size:clamp(38px,5.2vw,72px)}
+h3{font-size:22px;letter-spacing:-.025em;line-height:1.15}
+.lead{font-size:clamp(18px,1.5vw,21px);color:var(--muted);max-width:46ch}
+section{padding-block:clamp(44px,6vw,88px);position:relative}
+.head{margin-bottom:32px;display:grid;gap:14px}
+.head p{color:var(--muted);max-width:52ch}
+
+/* hero */
+.hero{min-height:100svh;padding:0;display:grid;align-items:center;overflow:hidden}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 55%,transparent) 34%,transparent 62%),linear-gradient(0deg,var(--bg) 0%,transparent 22%)}
+.hero-copy{position:relative;z-index:2;width:100%;padding-block:110px 72px}
+.hero-copy .role{color:var(--accent);margin-bottom:22px}
+.hero h1{font-family:var(--name);font-size:clamp(46px,6.6vw,95px);letter-spacing:-.045em;line-height:.95;font-weight:700}
+.hero h1 .w{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .w>span{display:block}
+.hero .lead{margin-top:30px;color:color-mix(in srgb,var(--ink) 72%,var(--muted))}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.fb{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:min(44vw,520px);display:grid;grid-template-columns:repeat(4,1fr);gap:14px;z-index:1}
+.fb .tile{aspect-ratio:1;background:#fff;border-radius:20px;display:grid;place-items:center;padding:24%}
+.fb .tile img{width:100%;height:100%;min-height:0;object-fit:contain}
+
+/* stats */
+.stats{padding-block:0 clamp(40px,6vw,80px);margin-top:-8px}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.stat{padding:26px 28px 26px 0;border-top:1px solid var(--line)}
+.stat+.stat{padding-left:28px;border-left:1px solid var(--line)}
+.stat b{display:block;font:600 clamp(52px,6.4vw,96px)/.9 var(--display);letter-spacing:-.055em;font-variant-numeric:tabular-nums}
+.stat b i{font-style:normal;color:var(--accent)}
+.stat>span{display:block;margin-top:10px;color:var(--muted);max-width:26ch}
+
+/* platforms */
+.plats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:24px;min-height:150px;display:grid;grid-template-rows:1fr auto;justify-items:center;align-items:center;padding:26px 18px 18px;text-decoration:none;color:#0B0E13;transition:transform .35s var(--ease),border-color .25s,box-shadow .3s}
+.pcard:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 18px 38px -18px var(--accent)}
+.pcard img{width:calc(var(--w)*1px);height:auto;max-width:100%;object-fit:contain}
+.pl{display:flex;flex-direction:column;align-items:center;gap:12px}
+.pn{font:700 22px/1 var(--display);letter-spacing:-.03em}
+.pc{margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:#566070}
+.pc b{color:#C2410C;font-weight:500}
+.plchip{display:inline-flex;align-items:center;background:#fff;border-radius:999px;padding:3px 10px;margin-left:2px;vertical-align:middle}
+.plchip img{height:20px;width:auto;max-width:110px}
+
+/* projects */
+.pick{display:flex;flex-wrap:wrap;gap:8px 10px;margin-bottom:28px;align-items:center}
+.pick .grp{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);width:100%;margin:10px 0 2px}
+.pick .grp:first-child{margin-top:0}
+.pb{--mx:50%;--my:50%;position:relative;overflow:hidden;height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--s1);font-size:15px;cursor:pointer;transition:border-color .25s,background .25s,color .25s}
+.pb::before{content:"";position:absolute;inset:0;background:radial-gradient(120px circle at var(--mx) var(--my),var(--glow),transparent 70%);opacity:0;transition:opacity .3s}
+.pb:hover::before{opacity:1}
+.pb:hover{border-color:color-mix(in srgb,var(--accent) 60%,var(--line))}
+.pb[aria-selected=true]{background:var(--solid);border-color:var(--solid);color:var(--on-solid);font-weight:600}
+.stage{background:var(--s1);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,3.4vw,52px);position:relative;overflow:hidden}
+.stage::before{content:"";position:absolute;width:520px;height:520px;right:-160px;top:-220px;background:radial-gradient(closest-side,var(--glow),transparent);pointer-events:none}
+.stage .tag{color:var(--accent)}
+.stage h3{font-family:var(--display);font-size:clamp(28px,3.4vw,46px);letter-spacing:-.04em;margin:12px 0 16px;line-height:1;max-width:20ch}
+.stage .sum{color:var(--muted);max-width:66ch;font-size:18px}
+.out{margin-top:22px;border-left:3px solid var(--accent);padding:2px 0 2px 16px;font:600 20px/1.3 var(--display);letter-spacing:-.02em;max-width:50ch}
+.glabel{display:block;color:var(--muted);margin:34px 0 14px}
+.graph{overflow-x:auto;scrollbar-width:thin;padding-bottom:6px}
+.gin{position:relative;min-width:min(100%,calc(var(--n)*220px))}
+@media (max-width:980px){.gin{min-width:calc(var(--n)*210px)}}
+.gt{margin-top:18px}
+.gt{font-weight:600;margin-bottom:10px;font-size:15px}
+.gcols{position:relative;z-index:1;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:clamp(28px,5vw,72px);align-items:center}
+.gcol{display:grid;gap:12px;align-content:center}
+.gcol .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);min-height:1em}
+.gnode{background:var(--s2);border:1px solid var(--line);border-radius:18px;padding:14px 16px;display:grid;gap:4px;transition:transform .35s var(--ease),border-color .25s}
+.gnode:hover{transform:translateY(-3px);border-color:var(--accent)}
+.gnode b{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15.5px;line-height:1.25}
+.gnode b img{width:28px;height:28px;object-fit:contain;flex:none;background:#fff;border-radius:8px;padding:4px}
+.gnode small{color:var(--muted);font-size:13.5px;line-height:1.35}
+.gnode.core{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.gnode.end{background:var(--solid);border-color:var(--solid);color:var(--on-solid)}
+.gnode.end small{color:inherit;opacity:.8}
+.gnode.ai b span{color:var(--accent)}
+.wires{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
+.wires .base{fill:none;stroke:var(--line);stroke-width:2}
+.wires .flow{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:3 14;opacity:.9}
+.two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;margin-top:6px}
+.built{list-style:none;padding:0;display:grid;gap:12px}
+.built li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:16.5px}
+.built li::before{content:"→";color:var(--accent);font-weight:700}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);font-size:14px;line-height:1.2;background:var(--s2);white-space:nowrap}
+.pill img{width:22px;height:22px;object-fit:contain;flex:none;background:#fff;border-radius:6px;padding:2px}
+.more{display:inline-flex;margin-top:30px;font-weight:600;text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:3px;transition:color .2s}
+.more:hover{color:var(--accent)}
+
+/* experience */
+.xp{display:grid}
+.xp article{position:relative;padding-block:28px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:8px 40px;align-content:start}
+.xp article::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--line)}
+.xp article::after{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+.xp article.in::after{transform:scaleX(1);transition:transform 1.2s var(--ease) .1s}
+.xp article:not(.now)::after{background:var(--muted)}
+.xp .when{color:var(--muted);padding-top:6px}
+.xp .now .when{color:var(--accent)}
+.xp h3{font-size:26px}
+.xp .co{display:block;margin-top:6px;font-size:16px;color:var(--muted)}
+.xp .imp{margin-top:14px;max-width:62ch;font-size:17px}
+.xp .det{margin-top:8px;max-width:62ch;color:var(--muted);font-size:15.5px}
+.xp .pills{margin-top:14px}
+.xp .pill.cert{white-space:normal;line-height:1.3}
+
+/* apps ribbon + dialog */
+.apps-top{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
+.big{font:600 clamp(80px,12vw,168px)/.8 var(--display);letter-spacing:-.065em;color:var(--bignum);font-variant-numeric:tabular-nums}
+.rib{display:grid;gap:14px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);overflow:hidden}
+.track{display:flex;gap:14px;width:max-content;animation:slide 60s linear infinite}
+.rib .track:nth-child(2){animation-direction:reverse;animation-duration:72s}
+@keyframes slide{to{transform:translateX(calc(-50% - 7px))}}
+.tile{background:#fff;border:1px solid var(--line);border-radius:20px;display:grid;place-items:center;overflow:hidden;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+.rib .tile{width:92px;height:92px;padding:22px;flex:none}
+.rib .tile img{width:100%;height:100%;min-height:0;object-fit:contain}
+dialog{width:min(940px,calc(100vw - 32px));max-height:min(780px,calc(100dvh - 32px));border:1px solid var(--line);border-radius:28px;background:var(--s1);color:var(--ink);padding:0;margin:auto;overflow:hidden}
+dialog[open]{display:flex;flex-direction:column}
+dialog::backdrop{background:rgb(4 5 8/.68);backdrop-filter:blur(6px)}
+.dlg-top{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:24px 28px 0}
+.dlg-top h3{font:600 26px/1 var(--display)}
+.x{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--s2);cursor:pointer}
+.x:hover{border-color:var(--ink)}
+.dlg-body{padding:18px 28px 28px;display:flex;flex-direction:column;gap:16px;min-height:0}
+.dlg-body>*{flex:none}
+.dlg-body>.list{flex:1 1 auto;min-height:0}
+label.f{display:block;font-size:14px;color:var(--muted);margin-bottom:6px}
+input[type=search]{width:100%;height:52px;border-radius:16px;border:1px solid var(--line);background:var(--s2);color:var(--ink);padding:0 18px;font:inherit;font-size:16px}
+input[type=search]:focus-visible{outline-offset:-2px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;scrollbar-width:thin}
+.chip{flex:none;height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:transparent;font-size:14.5px;cursor:pointer;white-space:nowrap}
+.chip small{color:var(--muted);margin-left:8px;font-family:var(--mono);font-size:12px}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip[aria-pressed=true] small{color:inherit;opacity:.7}
+.list{overflow-y:auto;display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start;min-height:180px;padding-right:4px}
+.list .pill{min-height:44px;font-size:15px}
+.list .pill img{width:28px;height:28px;border-radius:8px;padding:3px}
+.cnt{color:var(--muted);font-size:14px}
+
+/* skills + faq */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+.two h2{font-size:clamp(34px,4vw,54px);margin-bottom:34px}
+.group{padding-block:20px;border-top:1px solid var(--line)}
+.group:first-of-type{border-top:0;padding-top:0}
+.group h3{font:600 16px/1 var(--sans);letter-spacing:0;margin-bottom:12px;color:var(--muted)}
+.group .pill{min-height:32px;padding:4px 13px;font-size:13.5px}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font:500 19px/1.3 var(--display);letter-spacing:-.02em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 26px/1 var(--mono);color:var(--accent);transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 40px 22px 0;color:var(--muted);font-size:16px}
+
+/* contact */
+.contact{padding-block:0 64px}
+.panel{background:var(--solid);color:var(--on-solid);border-radius:36px;padding:clamp(30px,5vw,72px);display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,5vw,72px);align-items:stretch;position:relative;overflow:hidden}
+.panel::after{content:"";position:absolute;width:560px;height:560px;right:-120px;bottom:-280px;border-radius:50%;border:1px solid color-mix(in srgb,var(--on-solid) 22%,transparent);box-shadow:0 0 0 70px color-mix(in srgb,var(--on-solid) 5%,transparent),0 0 0 140px color-mix(in srgb,var(--on-solid) 3.5%,transparent);pointer-events:none}
+.panel h2{font-size:clamp(34px,4.2vw,60px);letter-spacing:-.04em;max-width:15ch;line-height:1}
+.panel p{max-width:44ch;opacity:.92;margin-top:18px;font-size:18px}
+.panel .btn{background:var(--pbtn-bg);color:var(--pbtn-fg);margin-top:34px;position:relative;z-index:1}
+.panel .pitch{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.panel .btn:hover{transform:translateY(-3px)}
+.act{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;gap:0}
+.act .when{margin:0 0 16px;max-width:none;font-size:15px;opacity:.78}
+.act .btn-xl{margin-top:0}
+.btn-xl{height:76px;padding:0 34px;font-size:21px;width:100%;justify-content:space-between;background:var(--pbtn-bg);color:var(--pbtn-fg)}
+.btn-xl::after{content:"→";font-size:26px;transition:transform .3s var(--ease)}
+.btn-xl:hover{transform:translateY(-3px);box-shadow:0 18px 40px -16px rgb(0 0 0/.55)}
+.btn-xl:hover::after{transform:translateX(5px)}
+.or{margin:30px 0 12px;font-size:13px;opacity:.7;font-family:var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.social{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 18px 0 8px;border-radius:999px;font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;background:color-mix(in srgb,var(--on-solid) 9%,transparent);border:1px solid color-mix(in srgb,var(--on-solid) 16%,transparent);transition:transform .3s var(--ease),background .25s}
+.social .tile{width:36px;height:36px;border-radius:50%;padding:8px;border:0;flex:none}
+.social .tile img{width:100%;height:100%;min-height:0;object-fit:contain}
+.social:hover{transform:translateY(-3px);background:color-mix(in srgb,var(--on-solid) 16%,transparent)}
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);font-size:15px}
+
+/* hero visuals that alternate with the 3D graph */
+.hv{position:absolute;right:max(28px,calc((100vw - 1280px)/2 + 28px));top:50%;transform:translateY(-50%);width:min(46vw,560px);z-index:1}
+.vz-hub{position:relative;display:grid;place-items:center;border-radius:50%;background:#fff;border:2px solid var(--accent)}
+.vz-hl{position:absolute;left:50%;top:50%;width:76%;height:auto;max-height:38%;object-fit:contain;transform:translate(-50%,-50%) scale(.88);opacity:0;transition:opacity .45s,transform .45s var(--hv-ease,var(--ease))}
+.vz-hl.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.vz-cap{margin:18px auto 0;max-width:36ch;text-align:center;color:var(--muted);font-size:15px;line-height:1.45}
+.vz-cap-abs{position:absolute;right:max(28px,calc((100vw - 1280px)/2 + 28px));bottom:40px;width:min(40vw,520px);margin:0;z-index:2}
+.vz-orb{container-type:size;position:relative;width:100%;aspect-ratio:1;margin:auto;overflow:hidden}
+.vz-rc{position:absolute;left:50%;top:50%;width:calc(var(--R)*2cqw);height:calc(var(--R)*2cqw);margin:calc(var(--R)*-1cqw) 0 0 calc(var(--R)*-1cqw);border:1px dashed var(--line);border-radius:50%}
+.vz-spin{position:absolute;inset:0;animation:vzspin var(--d) linear infinite;animation-direction:var(--dir)}
+.vz-o{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(calc(var(--a)*1deg)) translateX(calc(var(--R)*1cqw))}
+.vz-u{position:absolute;left:0;top:0;transform:rotate(calc(var(--a)*-1deg))}
+.vz-u2{animation:vzspin var(--d) linear infinite;animation-direction:var(--rev)}
+.vz-o .tile{position:absolute;width:calc(var(--s)*1cqw);height:calc(var(--s)*1cqw);margin:calc(var(--s)*-.5cqw) 0 0 calc(var(--s)*-.5cqw);border-radius:calc(var(--s)*.26cqw);padding:calc(var(--s)*.2cqw);box-shadow:0 10px 24px -14px rgb(0 0 0/.5)}
+@keyframes vzspin{to{transform:rotate(360deg)}}
+.vz-orb .vz-hub{position:absolute;left:50%;top:50%;width:19cqw;height:19cqw;margin:-9.5cqw 0 0 -9.5cqw;font-size:6.4cqw;box-shadow:0 0 0 0 var(--glow);animation:vzpulse 3s ease-out infinite}
+@keyframes vzpulse{70%{box-shadow:0 0 0 7cqw transparent}}
+.vz-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.vz-c{aspect-ratio:1;position:relative;transition:transform .25s var(--ease)}
+.vz-c .tile{position:absolute;inset:0;border-radius:20%;padding:20%;animation:vzwave 4.6s ease-in-out infinite;animation-delay:calc(var(--i)*-140ms)}
+@keyframes vzwave{50%{transform:translateY(-6px);opacity:.82}}
+.vz-c.hot .tile{box-shadow:0 18px 36px -14px var(--accent);border-color:var(--accent)}
+.vz-cmap{container-type:size;position:relative;width:100%;aspect-ratio:1;margin:auto}
+.vz-cmap svg{position:absolute;inset:0;width:100%;height:100%}
+.vz-ln{stroke:var(--accent);stroke-width:1.4;vector-effect:non-scaling-stroke;stroke-dasharray:100;stroke-dashoffset:100;animation:vzdraw .8s var(--ease) forwards;animation-delay:calc(var(--k)*70ms);opacity:.7}
+@keyframes vzdraw{to{stroke-dashoffset:0}}
+.vz-cmap .vz-hub{position:absolute;left:50%;top:50%;width:20cqw;height:20cqw;margin:-10cqw 0 0 -10cqw;font-size:6.6cqw;z-index:2;box-shadow:0 0 0 10px var(--glow)}
+.vz-cmap .tile{position:absolute;width:15cqw;height:15cqw;margin:-7.5cqw 0 0 -7.5cqw;border-radius:4cqw;padding:3cqw;box-shadow:0 12px 26px -14px rgb(0 0 0/.55);animation:vzpop .55s var(--ease) backwards;animation-delay:calc(var(--k)*70ms)}
+@keyframes vzpop{from{opacity:0;transform:scale(.4)}}
+.vz-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.vz-chips button{height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--s1) 80%,transparent);color:var(--ink);font:inherit;font-size:14.5px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.vz-chips button:hover{border-color:var(--ink)}
+.vz-chips button[aria-pressed=true]{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
+
+/* motion: only when JS runs and the visitor allows it */
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+  .js .rv.in{opacity:1;transform:none}
+  .js .hero h1 .w>span{transform:translateY(105%);animation:rise 1.1s var(--ease) forwards;animation-delay:calc(.15s + var(--i,0)*.12s)}
+  @keyframes rise{to{transform:none}}
+  .js .hero .role,.js .hero .lead,.js .hero .cta-row{opacity:0;animation:fade 1s var(--ease) forwards}
+  .js .hero .role{animation-delay:.05s}.js .hero .lead{animation-delay:.5s}.js .hero .cta-row{animation-delay:.65s}
+  @keyframes fade{from{transform:translateY(14px)}to{opacity:1;transform:none}}
+  .wires .flow{animation:dash 1.3s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-34}}
+  .wires .base{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .9s var(--ease) forwards;animation-delay:var(--dl,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .stage.swap .gnode{animation:pop .6s var(--ease) backwards;animation-delay:calc(var(--c,0)*.09s)}
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96)}}
+}
+@media (prefers-reduced-motion:reduce){.vz-spin,.vz-u2,.vz-orb .vz-hub,.vz-c .tile,.vz-cmap .tile{animation:none!important}.vz-ln{animation:none;stroke-dashoffset:0}.track{animation:none}.rib{overflow-x:auto}html{scroll-behavior:auto}.wires .base{stroke-dasharray:none}.wires .flow{display:none}}
+
+/* the hero stacks (text, then visual) below 1180px so the visual can never touch the text */
+@media (max-width:1180px){
+  .hero{min-height:0}
+  .hero::after{background:linear-gradient(0deg,var(--bg) 0%,transparent 24%)}
+  #gl{position:relative;height:340px;order:2}
+  .hero{grid-template-rows:auto auto;align-items:start}
+  .hero-copy{padding-block:104px 8px}
+  .hv{position:relative;right:auto;top:auto;transform:none;width:min(calc(100% - 40px),440px);margin:0 auto 28px;order:2}
+  .vz-wall{grid-template-columns:repeat(4,1fr)}
+  .vz-cap-abs{position:relative;right:auto;bottom:auto;width:auto;order:3;padding:0 20px 28px;margin:0 auto}
+}
+
+/* mobile collapse, explicit per layout */
+@media (max-width:980px){
+  .nav nav{display:none}.nav .wrap{gap:10px}
+  .hero{min-height:0}
+  .hero::after{background:linear-gradient(0deg,var(--bg) 0%,transparent 24%)}
+  #gl{position:relative;height:340px;order:2}
+  .hv{position:relative;right:auto;top:auto;transform:none;width:min(calc(100% - 40px),440px);margin:0 auto 28px;order:2}
+  .vz-wall{grid-template-columns:repeat(4,1fr)}
+  .hero{grid-template-rows:auto auto;align-items:start}
+  .hero-copy{padding-block:104px 8px}
+  .stats .wrap{grid-template-columns:1fr}
+  .stat,.stat+.stat{padding:22px 0;border-left:0}
+  .plats{grid-template-columns:repeat(2,1fr)}
+  .two-col,.two,.panel{grid-template-columns:1fr;gap:36px}
+  .xp article{grid-template-columns:150px minmax(0,1fr);gap:8px 24px}
+  .gcols{gap:34px}
+}
+@media (max-width:640px){
+  .wrap{padding-inline:20px}
+  .xp article{grid-template-columns:1fr}
+  .xp .when{padding-top:0}
+  .plats{grid-template-columns:repeat(2,1fr)}
+  .pcard{min-height:128px}
+  .stage{border-radius:22px}
+  .nav .btn{padding:0 14px}
+  .swl{display:none}
+  .brand{font-size:16px}
+  .rib .tile{width:76px;height:76px;padding:18px}
+  .pick{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin;margin-right:-20px;padding-right:20px}
+  .pick .grp{width:auto;flex:none;margin:0 2px 0 8px}
+  .pick .grp:first-child{margin-left:0}
+  .pb{flex:none}
+}
+</style>
+<body>
+<div id="top-sentinel" aria-hidden="true" style="position:absolute;top:0;left:0;width:1px;height:12px;pointer-events:none"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Sayam Nasir</a>
+    <nav aria-label="Primary">
+      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#apps">Apps</a><a href="#faq">FAQ</a>
+    </nav>
+    <button class="sw" id="theme" type="button" role="switch" aria-checked="true" aria-label="Night mode"><span class="swl">Night mode</span><span class="swt"><span class="swk"></span></span></button>
+    <a class="btn btn-primary" href="mailto:sayam.nasir53@gmail.com">Get in touch</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <div class="hv" id="hv" aria-hidden="true"></div>
+    <div class="fb" id="fb" hidden aria-hidden="true"></div>
+    <div class="wrap hero-copy">
+      <div class="mono role">AI Integration Engineer</div>
+      <h1><span class="w" style="--i:0"><span>Sayam</span></span><span class="w" style="--i:1"><span>Nasir</span></span></h1>
+      <p class="lead">I build production API integrations and MCP-based AI tooling for SaaS and enterprise platforms.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:sayam.nasir53@gmail.com">Get in touch</a>
+        <a class="btn btn-ghost" href="#projects">See what I've built</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat rv"><b><span data-n="100">100</span><i>+</i></b><span>production connectors delivered at Integry</span></div>
+      <div class="stat rv" style="--d:.1s"><b><span data-n="6">6</span><i>+</i></b><span>years building integrations, backend connectors and AI systems</span></div>
+      <div class="stat rv" style="--d:.2s"><b>~<span data-n="50">50</span><i>%</i></b><span>faster connector development with agentic, AI-assisted engineering</span></div>
+    </div>
+  </div>
+
+  <section id="platforms" style="padding-top:0">
+    <div class="wrap">
+      <div class="head rv">
+        <h2>Platforms I build on</h2>
+        <p>The integration platforms I use to ship connectors, enterprise APIs and AI tooling. Open one to see where I used it. Custom code in Node.js, TypeScript, Python and Java when a platform is not the right fit.</p>
+      </div>
+      <div class="plats rv" id="plats"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="head rv">
+        <h2>What I've built</h2>
+        <p>Choose a work area. The graph shows how data moves through it, from the first trigger to the final result.</p>
+      </div>
+      <div class="pick rv" id="pick" role="tablist" aria-label="Projects"></div>
+      <div class="stage rv" id="stage" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="experience" style="padding-top:0">
+    <div class="wrap">
+      <div class="head rv"><h2>Where I've worked</h2></div>
+      <div class="xp" id="xp"><article class="now rv"><div class="mono when">Feb 2026 - Present</div><div><h3>Senior Integrations Engineer</h3><span class="co">Motive, Remote</span><p class="imp">Improved integration delivery efficiency and consistency through senior technical support, reusable patterns and process automation.</p><p class="det">Designs enterprise integrations in MuleSoft, guides engineers through hard API, authentication and reliability problems, and troubleshoots production failures.</p></div></article><article class="rv" style="--d:0.06s"><div class="mono when">Sep 2024 - Jan 2026</div><div><h3>Software Engineer, Integration &amp; AI Systems</h3><span class="co">Appmixer, Remote</span><p class="imp">Delivered scalable automation by combining backend engineering, AI integration and customer-driven solution work.</p><p class="det">Built Node.js and TypeScript connectors, supported the MCP-based AI Connector Builder, and integrated OpenAI, Pinecone and Perplexity.</p></div></article><article class="rv" style="--d:0.12s"><div class="mono when">Jun 2022 - Sep 2024</div><div><h3>Solutions Engineer / MuleSoft Developer</h3><span class="co">Motive, Remote</span><p class="imp">Supported enterprise integrations for a platform serving 120,000+ customers, improving consistency, onboarding success and reliability.</p><p class="det">Delivered Mule 4 integrations from discovery to production rollout, tested them with MUnit, and mentored junior engineers.</p></div></article><article class="rv" style="--d:0.18s"><div class="mono when">Mar 2021 - Jun 2022</div><div><h3>Lead Integration Engineer</h3><span class="co">Integry, Remote</span><p class="imp">Helped reach 100+ production connectors while improving connector development practices and delivery consistency.</p><p class="det">Led a team of 6 engineers across sprint planning, estimation and releases, and standardised API analysis and documentation.</p></div></article><article class="rv" style="--d:0.24s"><div class="mono when">Nov 2019 - Mar 2021</div><div><h3>Integration Engineer</h3><span class="co">Integry, Remote</span><p class="imp">Reduced onboarding friction and enabled near-real-time integrations for multiple enterprise customers.</p><p class="det">Designed and verified integrations for 15+ B2B SaaS customers, including two-way syncs, bulk imports and polling triggers.</p></div></article><article class="rv"><div class="mono when">2019</div><div><h3>Education and certifications</h3><span class="co">Bachelor of Computer Science, University of Central Punjab</span><div class="pills"><span class="pill cert">IBM Data Science Professional Certificate</span><span class="pill cert">MuleSoft Anypoint Platform Development: Fundamentals</span><span class="pill cert">MuleSoft Anypoint Platform CloudHub Operations</span><span class="pill cert">DevOps Foundations: Accelerating Continuous Delivery</span></div></div></article></div>
+    </div>
+  </section>
+
+  <section id="apps" style="padding-top:0">
+    <div class="wrap">
+      <div class="apps-top">
+        <div class="rv">
+          <div class="big" id="total">21</div>
+          <p class="lead" style="margin-top:20px">apps, platforms and tools from my work, from CRMs and LLM APIs to MuleSoft.</p>
+        </div>
+        <button class="btn btn-ghost rv" id="open" type="button">Show all apps</button>
+      </div>
+    </div>
+    <div class="rib rv" id="rib" aria-hidden="true"></div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap two">
+      <div class="rv">
+        <h2>Skills</h2>
+        <div id="skills"></div>
+      </div>
+      <div class="rv">
+        <h2>Questions</h2>
+        <details><summary>What does an AI integration engineer do?</summary><p>I connect the systems a business already runs on through APIs, webhooks and middleware, and I build AI-powered workflows on top of them. The work spans backend connectors, enterprise API design, data transformation and LLM-based automation.</p></details>
+        <details><summary>Which platforms do you work with?</summary><p>Appmixer, MuleSoft (Anypoint Platform, DataWeave and CloudHub), Integry and Zapier, plus custom code in Node.js, TypeScript, Python and Java when a platform is not the right fit.</p></details>
+        <details><summary>What AI work have you done?</summary><p>At Appmixer I integrated LLM APIs into automation workflows, built integrations with OpenAI, Pinecone and Perplexity, and developed and supported the MCP-based architecture behind the AI Connector Builder. Agentic and AI-assisted development raised connector development velocity by approximately 50%.</p></details>
+        <details><summary>How do you handle production problems?</summary><p>I investigate API errors, authentication failures, webhook issues, rate limits and data inconsistencies, then fix the cause and feed the lesson back into reusable patterns, documentation and tests such as MUnit suites.</p></details>
+        <details><summary>Which APIs and authentication methods do you use?</summary><p>REST, SOAP and webhooks, described with OpenAPI, Swagger or RAML, and secured with OAuth 2.0, OIDC, JWT or API keys. For APIs without webhooks I build polling-based triggers.</p></details>
+        <details><summary>Have you led a team?</summary><p>Yes. At Integry I led six integration engineers, overseeing sprint planning, estimation and releases. At Motive I mentored junior engineers and now guide integration engineers through complex API, authentication and reliability issues.</p></details>
+        <details><summary>How do we get started?</summary><p>Email me with what you want to connect, automate or build. I will tell you how I would approach it.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="panel rv">
+        <div class="pitch">
+          <h2>Have an integration or AI problem to solve?</h2>
+          <p>Tell me what you want to connect, automate or build. I work across backend integrations, enterprise API design and AI-powered automation.</p>
+        </div>
+        <div class="act">
+          <p class="when">Send a short note about what you need.</p>
+          <a class="btn btn-xl" href="mailto:sayam.nasir53@gmail.com">Get in touch</a>
+          <div class="or">Or find me on</div>
+          <div class="links">
+            <a class="social" href="mailto:sayam.nasir53@gmail.com" aria-label="Email sayam.nasir53@gmail.com" title="sayam.nasir53@gmail.com"><span class="tile"><img src="assets/hd/gmail.svg" alt=""></span>Email</a>
+            <a class="social" href="https://www.linkedin.com/in/sayam-nasir" aria-label="LinkedIn"><span class="tile"><img src="assets/hd/linkedin.svg" alt=""></span>LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© 2026 Sayam Nasir. Islamabad, Pakistan.</div></footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-top"><h3 id="dlg-title">Apps I've worked with</h3><button class="x" id="close" type="button">Close</button></div>
+  <div class="dlg-body">
+    <div><label class="f" for="q">Search apps</label><input id="q" type="search" placeholder="Try Salesforce, OpenAI, MuleSoft" autocomplete="off"></div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    <div class="list" id="list"></div>
+    <div class="cnt" id="count"></div>
+  </div>
+</dialog>
+
+<script>
+const DATA = {"PROJECTS": [{"id": "mcp", "on": ["appmixer"], "group": "ai", "where": "Appmixer, AI systems", "title": "MCP-based AI Connector Builder", "summary": "Part of the engineering behind Appmixer's AI Connector Builder: an MCP-based architecture that lets AI-driven tools interact with external services and the connectors that reach them.", "flow": [{"label": "Request", "nodes": [["AI-driven tool", "needs to reach an external service"]]}, {"label": "Protocol", "nodes": [["MCP layer", "exposes services the AI can call", "core"]]}, {"label": "Platform", "nodes": [["Appmixer connectors", "API-based connectors and backend components"]]}, {"label": "Result", "nodes": [["External services", "third-party REST APIs", "end"]]}], "outcome": "Connector development velocity up by approximately 50% through agentic and AI-assisted development.", "built": ["Developed and supported the MCP-based architecture behind the AI Connector Builder", "Enabled AI-driven interaction with external services and integrations", "Built and maintained the underlying connectors in Node.js and TypeScript", "Applied agentic and AI-assisted development techniques across connector work"], "tags": ["Appmixer", "MCP", "LLM APIs", "Node.js", "TypeScript", "REST"]}, {"id": "aidata", "on": ["appmixer"], "group": "ai", "where": "Appmixer, AI systems", "title": "AI and data platform workflows", "summary": "Integrations that bring LLM and data platforms into automation workflows, fed by ingestion and transformation flows that cope with very different external systems.", "flow": [{"label": "Source", "nodes": [["SaaS apps and APIs", "data sources and business systems"]]}, {"label": "Prepare", "nodes": [["Ingest and transform", "mapping and processing flows", "core"]]}, {"label": "AI and data", "nodes": [["OpenAI", "LLM APIs", "ai"], ["Pinecone", "AI and data platform", "ai"], ["Perplexity", "AI search", "ai"]]}, {"label": "Deliver", "nodes": [["Automation workflow", "reliable across heterogeneous systems", "end"]]}], "built": ["Integrated LLM APIs and AI services into automation workflows and intelligent application experiences", "Built integrations with OpenAI, Pinecone and Perplexity", "Designed data ingestion, transformation and processing flows", "Shipped production-ready integrations connecting SaaS applications, APIs and data sources"], "tags": ["OpenAI", "Pinecone", "Perplexity", "LLM APIs", "Node.js", "TypeScript"]}, {"id": "mule", "on": ["mulesoft"], "group": "enterprise", "where": "Motive, Enterprise integration", "title": "API-led MuleSoft integrations", "summary": "Enterprise integrations for a platform serving 120,000+ customers, built as layered system, process and experience APIs and taken from requirements discovery to production rollout.", "flow": [{"label": "Consumers", "nodes": [["Customer applications", "need data from the platform"]]}, {"label": "Experience", "nodes": [["Experience API", "shaped for each consumer"]]}, {"label": "Process", "nodes": [["Process API", "orchestration and business logic", "core"]]}, {"label": "System", "nodes": [["System API", "wraps the underlying system"]]}, {"label": "Systems", "nodes": [["Motive and third-party systems", "connected end to end", "end"]]}], "built": ["Built scalable Mule 4 integrations on Anypoint Platform with CloudHub, DataWeave and RAML", "Developed system, process and experience APIs following API-led connectivity", "Added automated MUnit testing to cut regressions and support production readiness", "Led architecture discussions, data mapping sessions and API strategy workshops"], "tags": ["MuleSoft", "Mule 4", "Anypoint Platform", "DataWeave", "RAML", "CloudHub", "MUnit"]}, {"id": "sync", "on": ["integry"], "group": "enterprise", "where": "Integry, Customer integrations", "title": "Two-way sync and polling triggers", "summary": "Integrations for B2B SaaS customers, including APIs that offer no webhooks: scheduled polling detects changes, and two-way syncs keep both sides in step.", "flow": [{"label": "Schedule", "nodes": [["Scheduled process", "polls the third-party API"]]}, {"label": "Detect", "nodes": [["Polling trigger", "finds new and changed records", "core"]]}, {"label": "Transform", "nodes": [["JavaScript and Twig", "Google Cloud Functions for custom logic"]]}, {"label": "Sync", "nodes": [["Customer's system", "two-way sync and bulk imports", "end"]]}], "outcome": "Delivered for 15+ B2B SaaS customers, with near-real-time integrations for multiple enterprise customers.", "built": ["Two-way synchronizations, bulk imports and scheduled processes", "Polling-based triggers for APIs without webhook support", "Data transformation in JavaScript and Twig, plus Google Cloud Functions for custom automation and reporting", "REST, OAuth 2.0, JWT and API-key integrations over JSON and XML, backed by SQL and MySQL data stores"], "tags": ["Integry", "REST", "OAuth 2.0", "JWT", "Twig", "Google Cloud Functions", "MySQL"]}, {"id": "connectors", "on": ["integry"], "group": "enterprise", "where": "Integry, Team lead", "title": "100+ connectors, one standard", "summary": "Helped reach the platform goal of 100+ production connectors while leading six integration engineers and standardising how connectors are analysed, built and documented.", "flow": [{"label": "Analyse", "nodes": [["API analysis", "study the third-party API first"]]}, {"label": "Standardise", "nodes": [["Connector pattern", "one documented implementation approach", "core"]]}, {"label": "Build", "nodes": [["Team of 6 engineers", "technical guidance and review"]]}, {"label": "Release", "nodes": [["Production connectors", "sprint planning, estimation and releases", "end"]]}], "outcome": "100+ production connectors, including Salesforce, HubSpot, Zendesk, Mailchimp and Google Sheets.", "built": ["Built and maintained production API connectors for Integry's integration and automation platform", "Led six Integration Engineers: guidance, reviews, sprint planning, estimation and releases", "Standardised connector implementation patterns, documentation and API analysis workflows", "Handled customer integration requests and fed implementation insights back into the product"], "tags": ["Salesforce", "HubSpot", "Zendesk", "Mailchimp", "Google Sheets"]}], "catalog": [{"cat": "CRM, support and marketing", "apps": ["HubSpot", "Mailchimp", "Salesforce", "Zendesk"]}, {"cat": "AI platforms", "apps": ["OpenAI", "Perplexity", "Pinecone"]}, {"cat": "Data and spreadsheets", "apps": ["Google Sheets", "MySQL"]}, {"cat": "Integration platforms", "apps": ["Anypoint Platform", "Appmixer", "CloudHub", "Integry", "MuleSoft", "Zapier"]}, {"cat": "Enterprise platforms", "apps": ["Motive"]}, {"cat": "Cloud and engineering tools", "apps": ["AWS", "Datadog", "Git", "Google Cloud Functions", "Postman"]}]};
+const LOGO = {"salesforce": "assets/hd/salesforce.svg", "hubspot": "assets/hd/hubspot.svg", "zendesk": "assets/hd/zendesk.svg", "mailchimp": "assets/hd/mailchimp.svg", "googlesheets": "assets/apps/googlesheets.webp", "openai": "assets/hd/openai.svg", "datadog": "assets/hd/datadog.svg", "mysql": "assets/apps/mysql.webp", "git": "assets/hd/git.svg", "mulesoft": "assets/hd/mulesoft.svg", "perplexity": "assets/hd/perplexity.svg", "postman": "assets/hd/postman.svg"};      // app key -> best image
+const HERO = ["salesforce", "openai", "mulesoft", "hubspot", "git", "perplexity", "zendesk", "mysql", "postman", "mailchimp", "datadog", "googlesheets"];      // keys shown in the 3D graph and the ribbon
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const key = s => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const img = n => LOGO[key(n)] ? `<img src="${LOGO[key(n)]}" alt="" loading="lazy">` : "";
+const pill = n => `<span class="pill">${img(n)}${esc(n)}</span>`;
+
+/* nav turns solid after the hero (IntersectionObserver, no scroll listener) */
+const nav = $("#nav");
+new IntersectionObserver(([e]) => nav.classList.toggle("solid", !e.isIntersecting)).observe($("#top-sentinel"));
+new IntersectionObserver(([e]) => nav.classList.toggle("brand-on", !e.isIntersecting), { rootMargin: "-68px 0px 0px 0px" }).observe($(".hero h1"));
+
+/* theme toggle */
+const root = document.documentElement, tbtn = $("#theme");
+const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+const label = () => tbtn.setAttribute("aria-checked", isDark());
+tbtn.onclick = () => { const t = isDark() ? "light" : "dark"; root.dataset.theme = t; try { localStorage.setItem("theme", t) } catch (e) {} label(); window.dispatchEvent(new Event("themechange")); };
+label();
+
+/* platforms band: ranked by shipped case studies; logos sized optically so no wordmark dominates */
+const PLAT = { appmixer: ["Appmixer", "https://appmixer.com", 150, "assets/hd/appmixer.svg"], integry: ["Integry", "https://integry.ai", 124, "assets/platforms/integry.webp"], mulesoft: ["MuleSoft", "https://www.mulesoft.com", 52, "assets/hd/mulesoft.svg", 1], zapier: ["Zapier", "https://zapier.com", 108, "assets/platforms/zapier.webp"] };
+const PF = DATA.PROJECTS, used = k => PF.filter(p => (p.on || []).includes(k));
+const ranked = Object.keys(PLAT).sort((a, b) => used(b).length - used(a).length);
+$("#plats").innerHTML = ranked.map(k => { const n = used(k).length; return `<a class="pcard" href="${n ? "#projects" : PLAT[k][1]}" ${n ? "" : 'target="_blank" rel="noopener"'} data-pf="${k}" aria-label="${PLAT[k][0]}${n ? `, ${n} work ${n === 1 ? "area" : "areas"}` : ", website"}"><span class="pl"><img src="${PLAT[k][3]}" alt="${PLAT[k][4] ? "" : PLAT[k][0]}" style="--w:${PLAT[k][2]}">${PLAT[k][4] ? `<span class="pn">${PLAT[k][0]}</span>` : ""}</span><span class="pc">${n ? `<b>${n}</b> ${n === 1 ? "work area" : "work areas"}` : "Also used"}</span></a>`; }).join("");
+$("#plats").addEventListener("click", e => { const c = e.target.closest(".pcard"); if (!c || !used(c.dataset.pf).length) return; e.preventDefault(); show(used(c.dataset.pf)[0].id); $("#stage").scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "start" }); });
+
+/* projects: picker + flow graph */
+const P = DATA.PROJECTS, pick = $("#pick"), stage = $("#stage");
+const grp = [["AI systems", "ai"], ["Enterprise and platform integrations", "enterprise"]];
+pick.innerHTML = grp.map(([t, g]) => `<span class="grp">${t}</span>` + P.filter(p => p.group === g).map(p => `<button class="pb" role="tab" id="t-${p.id}" data-id="${p.id}" aria-selected="false" aria-controls="stage">${esc(p.title)}</button>`).join("")).join("");
+const LK = Object.keys(LOGO).filter(k => k.length >= 4).sort((a, b) => b.length - a.length);
+const nodeLogo = name => { const k = LK.find(x => key(name).startsWith(x)); return k ? `<img src="${LOGO[k]}" alt="">` : ""; };
+const gnode = (n, c) => `<div class="gnode ${n[2] || ""}" style="--c:${c}"><b>${nodeLogo(n[0])}<span>${esc(n[0])}</span></b>${n[1] ? `<small>${esc(n[1])}</small>` : ""}</div>`;
+const graph = (cols, title) => `${title ? `<p class="gt">${esc(title)}</p>` : ""}<div class="graph"><div class="gin" style="--n:${cols.length}"><svg class="wires" aria-hidden="true"></svg><div class="gcols" style="--n:${cols.length}">${cols.map((c, i) => `<div class="gcol"><span class="k">${esc(c.label || "")}</span>${c.nodes.map(n => gnode(n, i)).join("")}</div>`).join("")}</div></div></div>`;
+
+function wire(g) {                                   // draw curved connectors between neighbouring columns
+  const gin = g.querySelector(".gin"), svg = gin.querySelector(".wires"), box = gin.getBoundingClientRect(), cols = [...gin.querySelectorAll(".gcol")];
+  let d = "", i = 0;
+  const pt = (el, right) => { const r = el.getBoundingClientRect(); return [(right ? r.right : r.left) - box.left, r.top + r.height / 2 - box.top]; };
+  const paths = [];
+  for (let c = 0; c < cols.length - 1; c++)
+    for (const a of cols[c].querySelectorAll(".gnode")) for (const b of cols[c + 1].querySelectorAll(".gnode")) {
+      const [x1, y1] = pt(a, true), [x2, y2] = pt(b, false), dx = (x2 - x1) * .5;
+      paths.push(`M${x1},${y1} C${x1 + dx},${y1} ${x2 - dx},${y2} ${x2},${y2}`);
+    }
+  svg.setAttribute("viewBox", `0 0 ${box.width} ${box.height}`);
+  svg.innerHTML = paths.map((p, k) => `<path class="base" pathLength="1" style="--dl:${(k % 4) * .12}s" d="${p}"/><path class="flow" d="${p}"/>`).join("");
+}
+const wireAll = () => stage.querySelectorAll(".graph").forEach(wire);
+new ResizeObserver(wireAll).observe(stage);
+
+function show(id, anim = true) {
+  const p = P.find(x => x.id === id);
+  pick.querySelectorAll(".pb").forEach(b => { const on = b.dataset.id === id; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
+  stage.setAttribute("aria-labelledby", "t-" + id);
+  let g = "";
+  if (p.flow) g = graph(p.flow);
+  if (p.tracks) g = p.tracks.map(t => graph(t.steps.map(s => ({ label: "", nodes: [s] })), t.name)).join("");
+  stage.innerHTML = `
+    <div class="mono tag">${esc(p.where)}${p.on ? ` &nbsp;/&nbsp; Built on ${p.on.map(x => PLAT[x] ? `<span class="plchip"><img src="${PLAT[x][3]}" alt="${PLAT[x][0]}"></span>` : x).join(" ")}` : ""}</div>
+    <h3>${esc(p.title)}</h3>
+    <p class="sum">${esc(p.summary)}</p>
+    ${p.outcome ? `<p class="out">${esc(p.outcome)}</p>` : ""}
+    <span class="mono glabel">${p.tracks ? "One track per platform" : "How data moves"}</span>
+    ${g}
+    <div class="two-col" style="margin-top:36px">
+      <div><span class="mono glabel" style="margin-top:0">What I built</span><ul class="built">${p.built.map(b => `<li>${esc(b)}</li>`).join("")}</ul>
+        ${p.objects ? `<span class="mono glabel">What stays in sync</span><div class="pills">${p.objects.map(o => `<span class="pill">${esc(o)}</span>`).join("")}</div>` : ""}</div>
+      <div><span class="mono glabel" style="margin-top:0">Tools</span><div class="pills">${p.tags.map(pill).join("")}</div></div>
+    </div>`;
+  if (anim) { stage.classList.remove("swap"); void stage.offsetWidth; stage.classList.add("swap"); }
+  requestAnimationFrame(wireAll);
+}
+pick.addEventListener("click", e => { const b = e.target.closest(".pb"); if (b) show(b.dataset.id); });
+pick.addEventListener("pointermove", e => { const b = e.target.closest(".pb"); if (!b) return; const r = b.getBoundingClientRect(); b.style.setProperty("--mx", e.clientX - r.left + "px"); b.style.setProperty("--my", e.clientY - r.top + "px"); });
+pick.addEventListener("keydown", e => {
+  if (!["ArrowRight", "ArrowLeft", "ArrowDown", "ArrowUp"].includes(e.key)) return;
+  const t = [...pick.querySelectorAll(".pb")], i = t.findIndex(x => x.getAttribute("aria-selected") === "true");
+  const n = t[(i + (/Right|Down/.test(e.key) ? 1 : -1) + t.length) % t.length];
+  e.preventDefault(); n.focus(); show(n.dataset.id);
+});
+show(P[0].id, false);
+document.fonts && document.fonts.ready.then(wireAll);
+
+/* apps: ribbon + searchable card */
+const CAT = DATA.catalog, total = CAT.reduce((n, g) => n + g.apps.length, 0);
+$("#total").textContent = total;
+$("#open").textContent = `Show all ${total} apps`;
+const rk = HERO, half = Math.ceil(rk.length / 2);
+const tr = list => `<div class="track">${[...list, ...list, ...list, ...list, ...list, ...list].map(k => `<div class="tile"><img src="${LOGO[k]}" alt=""></div>`).join("")}</div>`;
+$("#rib").innerHTML = tr(rk.slice(0, half)) + tr(rk.slice(half));
+
+const dlg = $("#dlg"), chips = $("#chips"), list = $("#list"), qEl = $("#q"), count = $("#count");
+let active = "All";
+function chip(l, n) {
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", l === active);
+  b.innerHTML = `${esc(l)}<small>${n}</small>`;
+  b.onclick = () => { active = l; chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b)); render(); };
+  chips.appendChild(b);
+}
+chip("All", total); CAT.forEach(g => chip(g.cat, g.apps.length));
+function render() {
+  const q = qEl.value.trim().toLowerCase();
+  let apps = CAT.filter(g => active === "All" || g.cat === active).flatMap(g => g.apps);
+  apps = [...new Set(apps)].filter(a => !q || a.toLowerCase().includes(q));
+  apps.sort((a, b) => (!!LOGO[key(b)] - !!LOGO[key(a)]) || a.localeCompare(b));
+  list.innerHTML = apps.length ? apps.map(pill).join("") : `<p style="color:var(--muted)">No apps match "${esc(qEl.value)}". Check the spelling or pick another category.</p>`;
+  count.textContent = `Showing ${apps.length} of ${total} apps`;
+}
+qEl.addEventListener("input", render); render();
+$("#open").onclick = () => { dlg.showModal(); qEl.focus(); };
+$("#close").onclick = () => dlg.close();
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+/* skills */
+const SK = [["AI and intelligent automation", ["LLM APIs", "OpenAI", "AI agents", "MCP", "AI-powered workflows", "AI-assisted development"]], ["Backend and integration", ["Node.js", "TypeScript", "JavaScript", "Python", "Java", "API connectors", "Middleware", "Webhooks", "Event-driven integrations", "Microservices", "Data ingestion", "Data transformation"]], ["APIs and architecture", ["REST", "SOAP", "OpenAPI", "Swagger", "RAML", "OAuth 2.0", "OIDC", "JWT", "API keys", "API-led connectivity", "Integration architecture"]], ["Data and cloud", ["SQL", "MySQL", "JSON", "XML", "CSV", "Data mapping", "Data pipelines", "ETL", "AWS", "GCP", "CloudHub", "Google Cloud Functions", "Git", "Postman", "Datadog"]], ["Engineering practice", ["Troubleshooting", "Performance optimisation", "Code reviews", "Automated testing", "Technical documentation", "Reusable components", "Production support"]]];
+$("#skills").innerHTML = SK.map(([t, a]) => `<div class="group"><h3>${t}</h3><div class="pills">${a.map(x => `<span class="pill">${esc(x)}</span>`).join("")}</div></div>`).join("");
+
+/* reveal + count-up (IntersectionObserver only) */
+const ease = t => 1 - Math.pow(1 - t, 4);
+function countUp(el) {
+  const n = +el.dataset.n; if (REDUCED) return;
+  const t0 = performance.now();
+  (function f(t) { const p = Math.min((t - t0) / 1300, 1); el.textContent = Math.round(n * ease(p)); if (p < 1) requestAnimationFrame(f); })(t0);
+}
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add("in"); e.target.querySelectorAll("[data-n]").forEach(countUp); io.unobserve(e.target);
+}), { threshold: .12 });
+document.querySelectorAll(".rv,.xp article").forEach(el => io.observe(el));
+
+/* hero visual: a different one on every load (3D graph, orbit, magnetic wall, category map) */
+const okk = list => list.filter(k => LOGO[k]);
+const PLSRC = {appmixer:'assets/hd/appmixer.svg',integry:'assets/platforms/integry.webp',mulesoft:'assets/hd/mulesoft.svg',zapier:'assets/platforms/zapier.webp'};
+  const PLK = ["appmixer", "integry", "mulesoft", "zapier"];
+  let hubI = 0;
+  const hubHTML = () => `<div class="vz-hub" role="img" aria-label="Your app">${PLK.map((k, i) => `<img class="vz-hl${i === hubI ? " on" : ""}" src="${PLSRC[k]}" alt="">`).join("")}</div>`;
+  const plImgs = PLK.map(k => { const im = new Image(); im.src = PLSRC[k]; return im; });
+  setInterval(() => { if (document.hidden) return; hubI = (hubI + 1) % PLK.length; document.querySelectorAll(".vz-hub").forEach(h => [...h.children].forEach((im, i) => im.classList.toggle("on", i === hubI))); if (window.__hubRedraw) window.__hubRedraw(); }, 2400);
+  const CAP = `<p class="vz-cap">From CRMs to LLM APIs, connected on the platform that fits the job.</p>`;
+
+const VIEWS = {
+  orbit(el) {
+    const rings = [
+      { R: 19.5, d: 40, dir: "normal", s: 11.5, keys: ["salesforce", "openai", "mulesoft"] },
+      { R: 32.5, d: 62, dir: "reverse", s: 11.5, keys: ["hubspot", "git", "perplexity", "zendesk"] },
+      { R: 44.5, d: 90, dir: "normal", s: 10.5, keys: ["mysql", "postman", "mailchimp", "datadog", "googlesheets"] }
+    ];
+    el.innerHTML = `<div class="vz-orb">${rings.map(r => { const ks = okk(r.keys), n = ks.length; return `<div class="vz-rc" style="--R:${r.R}"></div><div class="vz-spin" style="--d:${r.d}s;--dir:${r.dir}">${ks.map((k, i) => `<div class="vz-o" style="--a:${(360 / n * i).toFixed(1)};--R:${r.R}"><div class="vz-u"><div class="vz-u2" style="--d:${r.d}s;--rev:${r.dir === "normal" ? "reverse" : "normal"}"><span class="tile" style="--s:${r.s}"><img src="${LOGO[k]}" alt=""></span></div></div></div>`).join("")}</div>`; }).join("")}${hubHTML()}</div>`;
+  },
+  wall(el) {
+    const keys = okk(HERO).slice(0, 12);
+    el.innerHTML = `<div class="vz-wall">${keys.map((k, i) => `<div class="vz-c"><span class="tile" style="--i:${i}"><img src="${LOGO[k]}" alt=""></span></div>`).join("")}</div>`;
+    const g = el.firstChild, cells = [...g.children]; let pts = [];
+    g.addEventListener("pointerenter", () => pts = cells.map(c => { const r = c.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; }));
+    g.addEventListener("pointermove", e => {
+      if (REDUCED) return; let best = -1, bd = 1e9;
+      cells.forEach((c, i) => { const d = Math.hypot(e.clientX - pts[i][0], e.clientY - pts[i][1]), sc = 1 + Math.max(0, 1 - d / 150) * .75; c.style.transform = `scale(${sc.toFixed(3)})`; c.style.zIndex = sc > 1.05 ? 2 : ""; if (d < bd) { bd = d; best = i; } });
+      cells.forEach((c, i) => c.classList.toggle("hot", i === best && bd < 60));
+    });
+    g.addEventListener("pointerleave", () => cells.forEach(c => { c.style.transform = ""; c.style.zIndex = ""; c.classList.remove("hot"); }));
+  },
+  map(el) {
+    const SETS = [
+      ["CRM and support", ["salesforce", "hubspot", "zendesk", "mailchimp"]],
+      ["AI and data", ["openai", "perplexity", "mysql", "googlesheets"]],
+      ["Platforms and tools", ["mulesoft", "git", "postman", "datadog"]]
+].map(([n, ks]) => [n, okk(ks)]);
+    el.innerHTML = `<div class="vz-cmap"></div><div class="vz-chips" role="group" aria-label="App categories">${SETS.map(([n, ks], i) => `<button type="button" data-i="${i}" aria-pressed="${i === 0}">${n}</button>`).join("")}</div>`;
+    const cm = el.querySelector(".vz-cmap"), cc = el.querySelector(".vz-chips"); let cur = 0;
+    const draw = () => {
+      const ks = SETS[cur][1], n = ks.length, pts = ks.map((k, i) => { const a = -Math.PI / 2 + i * 2 * Math.PI / n; return [50 + 37 * Math.cos(a), 50 + 37 * Math.sin(a)]; });
+      cm.innerHTML = `<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">${pts.map(([x, y], i) => `<line class="vz-ln" style="--k:${i}" x1="50" y1="50" x2="${x}" y2="${y}"/>`).join("")}</svg>${hubHTML()}${ks.map((k, i) => `<span class="tile" style="left:${pts[i][0]}%;top:${pts[i][1]}%;--k:${i}"><img src="${LOGO[k]}" alt="${k}"></span>`).join("")}`;
+      cc.querySelectorAll("button").forEach((b, i) => b.setAttribute("aria-pressed", i === cur));
+    };
+    cc.addEventListener("click", e => { const b = e.target.closest("button"); if (b) { cur = +b.dataset.i; draw(); } });
+    draw();
+  }
+};
+function pickHero() {                    // ?hero=orbit|wall|map|graph pins one, otherwise random and never the same twice in a row
+  const all = ["graph", "orbit", "wall", "map"], q = new URLSearchParams(location.search).get("hero");
+  if (all.includes(q)) return q;
+  let last = null; try { last = localStorage.getItem("hero"); } catch (e) {}
+  const pool = all.filter(m => m !== last), m = pool[Math.floor(Math.random() * pool.length)];
+  try { localStorage.setItem("hero", m); } catch (e) {}
+  return m;
+}
+const HERO_MODE = pickHero();
+
+/* hero: 3D integration graph. Real app logos orbit a hub, data pulses travel along every link. */
+function fallback() {
+  const fb = $("#fb"); fb.hidden = false; $("#gl").style.display = "none";
+  fb.innerHTML = HERO.slice(0, 12).map(k => `<div class="tile"><img src="${LOGO[k]}" alt=""></div>`).join("");
+}
+function initGraph() {
+  if (!window.THREE) return fallback();
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: $("#gl"), antialias: true, alpha: true }); } catch (e) { return fallback(); }
+  const canvas = renderer.domElement, scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(42, 1, .1, 100);
+  const group = new THREE.Group(); scene.add(group);
+  const css = v => getComputedStyle(root).getPropertyValue(v).trim();
+  let accent = new THREE.Color(css("--accent"));
+  const cardTex = (src) => new Promise(res => {
+    const im = new Image();
+    im.onload = () => {
+      const c = document.createElement("canvas"); c.width = c.height = 256; const x = c.getContext("2d");
+      x.fillStyle = "#fff"; x.beginPath(); x.roundRect(8, 8, 240, 240, 56); x.fill();
+      const a = (im.naturalWidth || 1) / (im.naturalHeight || 1), m = 150; let w = m, h = m;
+      if (a > 1) h = m / a; else w = m * a;
+      x.drawImage(im, 128 - w / 2, 128 - h / 2, w, h);
+      const t = new THREE.CanvasTexture(c); t.anisotropy = 4; res(t);
+    };
+    im.onerror = () => res(null); im.src = src;
+  });
+  const dot = (() => { const c = document.createElement("canvas"); c.width = c.height = 64; const x = c.getContext("2d"), g = x.createRadialGradient(32, 32, 0, 32, 32, 32); g.addColorStop(0, "rgba(255,255,255,1)"); g.addColorStop(.35, "rgba(255,255,255,.55)"); g.addColorStop(1, "rgba(255,255,255,0)"); x.fillStyle = g; x.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); })();
+
+  // hub
+  const hubC = document.createElement("canvas"); hubC.width = hubC.height = 256;
+  const drawHub = () => { const x = hubC.getContext("2d"); x.clearRect(0, 0, 256, 256); x.fillStyle = "#fff"; x.beginPath(); x.arc(128, 128, 118, 0, 7); x.fill(); x.lineWidth = 8; x.strokeStyle = css("--solid"); x.stroke(); const im = plImgs[hubI]; if (im && im.naturalWidth) { const a = im.naturalWidth / im.naturalHeight, w = 176, h = Math.min(w / a, 90), ww = h * a; x.drawImage(im, 128 - ww / 2, 128 - h / 2, ww, h); } hubTex.needsUpdate = true; };
+    window.__hubRedraw = drawHub; plImgs.forEach(i => i.addEventListener("load", drawHub));
+  const hubTex = new THREE.CanvasTexture(hubC); drawHub(); document.fonts && document.fonts.ready.then(drawHub);
+  const hub = new THREE.Sprite(new THREE.SpriteMaterial({ map: hubTex, transparent: true })); hub.scale.set(1.6, 1.6, 1); group.add(hub);
+  const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map: dot, color: accent, transparent: true, opacity: parseFloat(css("--halo-o")) || .5, depthWrite: false })); halo.scale.set(8, 8, 1); group.add(halo);
+
+  const keys = HERO.slice(0, 28), nodes = [], pulses = [], lines = [];
+  keys.forEach((k, i) => {                            // fibonacci shell, slightly jittered
+    const t = (i + .5) / keys.length, phi = Math.acos(1 - 2 * t), th = Math.PI * (1 + Math.sqrt(5)) * i, r = 3.3 + ((i * 37) % 10) / 10 * .9;
+    const pos = new THREE.Vector3(r * Math.sin(phi) * Math.cos(th), r * Math.cos(phi) * .8, r * Math.sin(phi) * Math.sin(th));
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, opacity: 0 })); sp.position.copy(pos); sp.scale.set(.95, .95, 1); group.add(sp);
+    const lg = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), pos]);
+    const ln = new THREE.Line(lg, new THREE.LineBasicMaterial({ color: accent, transparent: true, opacity: .34 })); group.add(ln); lines.push(ln);
+    const pu = new THREE.Sprite(new THREE.SpriteMaterial({ map: dot, color: accent, transparent: true, depthWrite: false })); pu.scale.set(.3, .3, 1); group.add(pu);
+    pulses.push({ pu, pos, t: Math.random(), v: .14 + Math.random() * .2 });
+    nodes.push(sp);
+    cardTex(LOGO[k]).then(tx => { if (tx) { sp.material.map = tx; sp.material.needsUpdate = true; sp.userData.born = performance.now() + i * 70; } });
+  });
+
+  function size() {
+    const w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return;
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(w, h, false);
+    camera.aspect = w / h; const wide = w / h > 1.25;
+    camera.position.set(0, 0, wide ? 15 : 15); group.position.set(wide ? 5.4 : 0, 0, 0); camera.updateProjectionMatrix();
+    if (REDUCED) draw(0);
+  }
+  new ResizeObserver(size).observe(canvas);
+  window.addEventListener("themechange", () => {
+    accent = new THREE.Color(css("--accent")); halo.material.color = accent; halo.material.opacity = parseFloat(css("--halo-o")) || .5;
+    lines.forEach(l => l.material.color = accent); pulses.forEach(p => p.pu.material.color = accent); drawHub(); if (REDUCED) draw(0);
+  });
+  let mx = 0, my = 0, rx = 0, ry = 0, last = performance.now();
+  window.addEventListener("pointermove", e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+  function draw(dt) {
+    const sy = Math.min(scrollY / innerHeight, 1);
+    group.rotation.y += dt * .08; rx += (my * .35 + sy * .5 - rx) * .05; ry += (mx * .5 - ry) * .05;
+    group.rotation.x = rx; group.position.y = sy * 2.2; group.rotation.z = ry * .15;
+    const now = performance.now();
+    nodes.forEach(s => { const b = s.userData.born; if (b) s.material.opacity = Math.min(Math.max((now - b) / 700, 0), 1) * (1 - sy * .7); });
+    pulses.forEach(p => { p.t = (p.t + dt * p.v) % 1; p.pu.position.copy(p.pos).multiplyScalar(p.t); p.pu.material.opacity = Math.sin(Math.PI * p.t) * .95; });
+    renderer.render(scene, camera);
+  }
+  let visible = true; new IntersectionObserver(([e]) => visible = e.isIntersecting).observe($("#hero"));
+  size();
+  if (REDUCED) { nodes.forEach(s => s.userData.born = 1); setTimeout(() => draw(0), 400); return; }
+  (function loop(t) { requestAnimationFrame(loop); const dt = Math.min((t - last) / 1000, .05); last = t; if (visible) draw(dt); })(performance.now());
+}
+const capEl = document.createElement("p"); capEl.className = "vz-cap vz-cap-abs"; capEl.textContent = "From CRMs to LLM APIs, connected on the platform that fits the job.";
+if (HERO_MODE === "graph") {            // three.js is only downloaded when the 3D graph is the visual for this load
+  $("#hv").hidden = true; $("#hero").appendChild(capEl);
+  const sc = document.createElement("script"); sc.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+  sc.onload = () => document.readyState === "complete" ? initGraph() : addEventListener("load", initGraph);
+  sc.onerror = fallback; document.head.appendChild(sc);
+} else { $("#gl").style.display = "none"; VIEWS[HERO_MODE]($("#hv")); $("#hv").insertAdjacentHTML("beforeend", CAP); }
+</script>
+</body>
+</html>
