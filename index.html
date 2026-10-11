@@ -172,7 +172,9 @@ section{padding-block:clamp(44px,6vw,88px);position:relative}
 .xp .when{color:var(--muted);padding-top:6px}
 .xp .now .when{color:var(--accent)}
 .xp h3{font-size:26px}
-.xp .co{display:block;margin-top:6px;font-size:16px;color:var(--muted)}
+.xp .co{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin-top:10px;font-size:16px;color:var(--muted)}
+.xp .lg{display:inline-flex;align-items:center;height:34px;padding:0 12px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.xp .lg img{height:20px;width:auto;max-width:120px}
 .xp .imp{margin-top:14px;max-width:62ch;font-size:17px}
 .xp .det{margin-top:8px;max-width:62ch;color:var(--muted);font-size:15.5px}
 .xp .pills{margin-top:14px}
@@ -181,6 +183,7 @@ section{padding-block:clamp(44px,6vw,88px);position:relative}
 /* apps ribbon + dialog */
 .apps-top{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
 .big{font:600 clamp(80px,12vw,168px)/.8 var(--display);letter-spacing:-.065em;color:var(--bignum);font-variant-numeric:tabular-nums}
+.big small{font-size:.38em;letter-spacing:-.02em;color:var(--accent)}
 .rib{display:grid;gap:14px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);overflow:hidden}
 .track{display:flex;gap:14px;width:max-content;animation:slide 60s linear infinite}
 .rib .track:nth-child(2){animation-direction:reverse;animation-duration:72s}
@@ -411,7 +414,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
   <section id="experience" style="padding-top:0">
     <div class="wrap">
       <div class="head rv"><h2>Where I've worked</h2></div>
-      <div class="xp" id="xp"><article class="now rv"><div class="mono when">Feb 2026 - Present</div><div><h3>Senior Integrations Engineer</h3><span class="co">Motive, Remote</span><p class="imp">Improved integration delivery efficiency and consistency through senior technical support, reusable patterns and process automation.</p><p class="det">Designs enterprise integrations in MuleSoft, guides engineers through hard API, authentication and reliability problems, and troubleshoots production failures.</p></div></article><article class="rv" style="--d:0.06s"><div class="mono when">Sep 2024 - Jan 2026</div><div><h3>Software Engineer, Integration &amp; AI Systems</h3><span class="co">Appmixer, Remote</span><p class="imp">Delivered scalable automation by combining backend engineering, AI integration and customer-driven solution work.</p><p class="det">Built Node.js and TypeScript connectors, supported the MCP-based AI Connector Builder, and integrated OpenAI, Pinecone and Perplexity.</p></div></article><article class="rv" style="--d:0.12s"><div class="mono when">Jun 2022 - Sep 2024</div><div><h3>Solutions Engineer / MuleSoft Developer</h3><span class="co">Motive, Remote</span><p class="imp">Supported enterprise integrations for a platform serving 120,000+ customers, improving consistency, onboarding success and reliability.</p><p class="det">Delivered Mule 4 integrations from discovery to production rollout, tested them with MUnit, and mentored junior engineers.</p></div></article><article class="rv" style="--d:0.18s"><div class="mono when">Mar 2021 - Jun 2022</div><div><h3>Lead Integration Engineer</h3><span class="co">Integry, Remote</span><p class="imp">Helped reach 100+ production connectors while improving connector development practices and delivery consistency.</p><p class="det">Led a team of 6 engineers across sprint planning, estimation and releases, and standardised API analysis and documentation.</p></div></article><article class="rv" style="--d:0.24s"><div class="mono when">Nov 2019 - Mar 2021</div><div><h3>Integration Engineer</h3><span class="co">Integry, Remote</span><p class="imp">Reduced onboarding friction and enabled near-real-time integrations for multiple enterprise customers.</p><p class="det">Designed and verified integrations for 15+ B2B SaaS customers, including two-way syncs, bulk imports and polling triggers.</p></div></article><article class="rv"><div class="mono when">2019</div><div><h3>Education and certifications</h3><span class="co">Bachelor of Computer Science, University of Central Punjab</span><div class="pills"><span class="pill cert">IBM Data Science Professional Certificate</span><span class="pill cert">MuleSoft Anypoint Platform Development: Fundamentals</span><span class="pill cert">MuleSoft Anypoint Platform CloudHub Operations</span><span class="pill cert">DevOps Foundations: Accelerating Continuous Delivery</span></div></div></article></div>
+      <div class="xp" id="xp"><article class="now rv"><div class="mono when">Feb 2026 - Present</div><div><h3>Senior Integrations Engineer</h3><span class="co"><span class="lg"><img src="assets/hd/motive.svg" alt="Motive"></span><span>Remote</span></span><p class="imp">Improved integration delivery efficiency and consistency through senior technical support, reusable patterns and process automation.</p><p class="det">Designs enterprise integrations in MuleSoft, guides engineers through hard API, authentication and reliability problems, and troubleshoots production failures.</p></div></article><article class="rv" style="--d:0.06s"><div class="mono when">Sep 2024 - Jan 2026</div><div><h3>Software Engineer, Integration &amp; AI Systems</h3><span class="co"><span class="lg"><img src="assets/hd/appmixer.svg" alt="Appmixer"></span><span>Remote</span></span><p class="imp">Delivered scalable automation by combining backend engineering, AI integration and customer-driven solution work.</p><p class="det">Built Node.js and TypeScript connectors, supported the MCP-based AI Connector Builder, and integrated OpenAI, Pinecone and Perplexity.</p></div></article><article class="rv" style="--d:0.12s"><div class="mono when">Jun 2022 - Sep 2024</div><div><h3>Solutions Engineer / MuleSoft Developer</h3><span class="co"><span class="lg"><img src="assets/hd/motive.svg" alt="Motive"></span><span>Remote</span></span><p class="imp">Supported enterprise integrations for a platform serving 120,000+ customers, improving consistency, onboarding success and reliability.</p><p class="det">Delivered Mule 4 integrations from discovery to production rollout, tested them with MUnit, and mentored junior engineers.</p></div></article><article class="rv" style="--d:0.18s"><div class="mono when">Mar 2021 - Jun 2022</div><div><h3>Lead Integration Engineer</h3><span class="co"><span class="lg"><img src="assets/platforms/integry.webp" alt="Integry"></span><span>Remote</span></span><p class="imp">Helped reach 100+ production connectors while improving connector development practices and delivery consistency.</p><p class="det">Led a team of 6 engineers across sprint planning, estimation and releases, and standardised API analysis and documentation.</p></div></article><article class="rv" style="--d:0.24s"><div class="mono when">Nov 2019 - Mar 2021</div><div><h3>Integration Engineer</h3><span class="co"><span class="lg"><img src="assets/platforms/integry.webp" alt="Integry"></span><span>Remote</span></span><p class="imp">Reduced onboarding friction and enabled near-real-time integrations for multiple enterprise customers.</p><p class="det">Designed and verified integrations for 15+ B2B SaaS customers, including two-way syncs, bulk imports and polling triggers.</p></div></article><article class="rv"><div class="mono when">2019</div><div><h3>Education and certifications</h3><span class="co">Bachelor of Computer Science, University of Central Punjab</span><div class="pills"><span class="pill cert">IBM Data Science Professional Certificate</span><span class="pill cert">MuleSoft Anypoint Platform Development: Fundamentals</span><span class="pill cert">MuleSoft Anypoint Platform CloudHub Operations</span><span class="pill cert">DevOps Foundations: Accelerating Continuous Delivery</span></div></div></article></div>
     </div>
   </section>
 
@@ -419,7 +422,7 @@ footer{border-top:1px solid var(--line);padding-block:28px;color:var(--muted);fo
     <div class="wrap">
       <div class="apps-top">
         <div class="rv">
-          <div class="big" id="total">21</div>
+          <div class="big" id="total">20<small>+</small></div>
           <p class="lead" style="margin-top:20px">apps, platforms and tools from my work, from CRMs and LLM APIs to MuleSoft.</p>
         </div>
         <button class="btn btn-ghost rv" id="open" type="button">Show all apps</button>
@@ -569,8 +572,8 @@ document.fonts && document.fonts.ready.then(wireAll);
 
 /* apps: ribbon + searchable card */
 const CAT = DATA.catalog, total = CAT.reduce((n, g) => n + g.apps.length, 0);
-$("#total").textContent = total;
-$("#open").textContent = `Show all ${total} apps`;
+$("#total").innerHTML = `${Math.floor(total / 10) * 10}<small>+</small>`;
+$("#open").textContent = "Show all apps";
 const rk = HERO, half = Math.ceil(rk.length / 2);
 const tr = list => `<div class="track">${[...list, ...list, ...list, ...list, ...list, ...list].map(k => `<div class="tile"><img src="${LOGO[k]}" alt=""></div>`).join("")}</div>`;
 $("#rib").innerHTML = tr(rk.slice(0, half)) + tr(rk.slice(half));
